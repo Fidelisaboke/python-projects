@@ -34,5 +34,3 @@ def display_board(board):
     |       |       |       |
     +-------+-------+-------+
     """)
-
-display_board(fill_board())
