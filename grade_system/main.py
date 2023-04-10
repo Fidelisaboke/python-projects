@@ -16,8 +16,7 @@ while True:
     2 - Register student
     3 - Change student's name
     4 - Delete student
-    5 - Enter marks
-    6 - Find average/total marks for a student
+    5 - Enter marks and display the average
     0 - Exit
     ''')
 
@@ -25,22 +24,24 @@ while True:
     option = input('> ')
     if option == '1':
         grade.display_students(students)
-        sleep(2)
+        sleep(1)
     elif option == '2':
         grade.reg_student(students)
-        sleep(1.5)
+        sleep(0.5)
     elif option == '3':
         grade.change_student_name(students)
-        sleep(2)
+        sleep(1)
     elif option == '4':
         grade.delete_student(students)
-        sleep(2)
+        sleep(1)
     elif option == '5':
         grade.enter_marks(students, marks_list)
-        sleep(1.5)
+        grade.calculate_average_marks(marks_list)
+        grade.display_average_marks(marks_list)
+        sleep(0.5)
     elif option == '6':
-        grade.display_total_and_average(marks_list)
-        sleep(2)
+        grade.display_total_and_average()
+        sleep(1)
     elif option == '0':
         print('Closing...')
         sleep(2)

@@ -16,7 +16,14 @@ def check_input(input_string):
     return bool(re.match(name_regex, input_string))
     
 def reg_student(students):
-    student_no = int(input('Enter student number: '))
+    try:
+        student_no = int(input('Enter student number: '))
+    except ValueError:
+        print('Integers only. Try again.')
+        return
+    except:
+        print("An unknown error has occured.")
+
     student_name = input('Enter student name: ')
     if check_input(student_name):
         if student_no in students.keys():
@@ -29,7 +36,15 @@ def reg_student(students):
         ID: only numbers, Name: only a single name''')
 
 def change_student_name(students):
-    student_no = int(input('Enter student number: '))
+    try:
+        student_no = int(input('Enter student number: '))
+    except ValueError:
+        print('Integers only. Try again.')
+        return
+    except:
+        print("An unknown error has occured.")
+        return
+    
     if student_no in students.keys():
         new_student_name = input('Enter new name: ')
         if check_input(new_student_name):
@@ -43,7 +58,15 @@ def change_student_name(students):
 
 
 def delete_student(students):
-    student_id=int(input("Enter the student's ID no: "))
+    try:
+        student_id=int(input("Enter the student's ID no: "))
+    except ValueError:
+        print("Please enter an integer")
+        return
+    except:
+        print("An error has occured")
+        return
+    
     if student_id in students.keys():
         del students[student_id]
         print('Student deleted successfully')
@@ -54,31 +77,44 @@ def display_students(students):
     print(f'Registered students: {students}')
     
 def enter_marks(students, marks_list):
-    student_number = int(input('Enter student number: '))
-    if student_number in students.keys():
-        no_of_subjects = int(input('How many subjects? '))
-        for i in range(no_of_subjects):
-            print(f'---Subject no {i+1}---')
-            mark = int(input('Enter mark: '))
-            marks_list.append(mark)
+    global student_number
+    try:
+        student_number = int(input('Enter student number: '))
+        if student_number in students.keys():
+            no_of_subjects = int(input('How many subjects? '))
+            for i in range(no_of_subjects):
+                print(f'---Subject no {i+1}---')
+                mark = int(input('Enter mark: '))
+                if mark >= 0 and mark <= 100:
+                    marks_list.append(mark)
+                else:
+                    print('Marks range from 0 to 100. Please try again.')
+                    return
+    except ValueError:
+        print("Please enter an integer.")
+        return
+            
     else:
         print('Student does not exist')
+        return
 
-def calculate_total_marks(marks_list):
+def get_total_marks(marks_list):
     return sum(marks_list)
 
 def calculate_average_marks(marks_list):
-    global total_marks
-    global average_marks
-    total_marks = calculate_total_marks(marks_list)
+    total_marks = get_total_marks(marks_list)
     
     try:
         average_marks  = total_marks/len(marks_list)
         return average_marks
     except ZeroDivisionError:
         print('No marks have been entered. Try again.')
-        return 0
+        return
+    
+def get_student_number():
+    return student_number
 
-def display_total_and_average():
-    print(f'Total marks: {total_marks}')
-    print(f'Average: {average_marks}')
+def display_average_marks(marks_list):
+    average_marks = calculate_average_marks(marks_list)
+    stud_no = get_student_number()
+    print(f"Average marks for {stud_no}: {average_marks}")
