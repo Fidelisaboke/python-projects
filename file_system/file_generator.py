@@ -33,7 +33,7 @@ def create_html_file(files_count):
         html_file.close()
 
         # Open the file in write mode
-        html_file = open(f"gen_files/html/page-{i}.txt", "w")
+        html_file = open(f"gen_files/html/page-{i}.html", "w")
         
         # Write content to the file:
         html_file.write(f'''
