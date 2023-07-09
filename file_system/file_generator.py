@@ -36,20 +36,19 @@ def create_html_file(files_count):
         html_file = open(f"gen_files/html/page-{i}.html", "w")
         
         # Write content to the file:
-        html_file.write(f'''
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Page {i}</title>
-                </head>
-                <body>
-                    <h2 style='text-align:center;'>Page {i}</h2>
-                    <hr>
-                </body>
-                </html>
-                ''')
+        html_file.write(f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page {i}</title>
+</head>
+<body>
+    <h2 style='text-align:center;'>Page {i}</h2>
+    <hr>
+</body>
+</html>
+''')
         
         html_file.close()
         
