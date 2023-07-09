@@ -22,7 +22,7 @@ def create_text_file(files_count):
         print(f'text file {i} created.')
         
         # Delay execution for 0.5 seconds
-        sleep(1)
+        sleep(0.5)
 
 # .html file generator
 def create_html_file(files_count):
