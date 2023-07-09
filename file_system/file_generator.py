@@ -9,15 +9,15 @@ def create_text_file(files_count):
     for i in range(files_count):
         
         # Create a file
-        html_file = open(f"gen_files/text/file-{i}.txt", "x")
-        html_file.close()
+        text_file = open(f"gen_files/text/file-{i}.txt", "x")
+        text_file.close()
 
         # Open the file in write mode
-        html_file = open(f"gen_files/text/file-{i}.txt", "w")
+        text_file = open(f"gen_files/text/file-{i}.txt", "w")
         
         # Write content to the file:
-        html_file.write(f'This text file was automatically created.')
-        html_file.close()
+        text_file.write(f'This text file was automatically created.')
+        text_file.close()
         
         print(f'text file {i} created.')
         
