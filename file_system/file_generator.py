@@ -9,15 +9,17 @@ def create_text_file(files_count):
     for i in range(files_count):
         
         # Create a file
-        html_file = open(f"file{i}.txt", "x")
+        html_file = open(f"gen_files/text/file-{i}.txt", "x")
         html_file.close()
 
         # Open the file in write mode
-        html_file = open(f"file-{i}.txt", "w")
+        html_file = open(f"gen_files/text/file-{i}.txt", "w")
         
         # Write content to the file:
-        html_file.write(f'FILE-{i+1}')
+        html_file.write(f'This text file was automatically created.')
         html_file.close()
+        
+        print(f'text file {i} created.')
         
         # Delay execution for 1 second
         sleep(1)
@@ -27,11 +29,11 @@ def create_html_file(files_count):
     for i in range(files_count):
         
         # Create a file
-        html_file = open(f"page-{i}.html", "x")
+        html_file = open(f"gen_files/html/page-{i}.html", "x")
         html_file.close()
 
         # Open the file in write mode
-        html_file = open(f"page-{i}.txt", "w")
+        html_file = open(f"gen_files/html/page-{i}.txt", "w")
         
         # Write content to the file:
         html_file.write(f'''
@@ -43,7 +45,7 @@ def create_html_file(files_count):
                     <title>Page {i}</title>
                 </head>
                 <body>
-                    <h2>Page {i}</h2>
+                    <h2 style='text-align:center;'>Page {i}</h2>
                     <hr>
                 </body>
                 </html>
@@ -51,5 +53,7 @@ def create_html_file(files_count):
         
         html_file.close()
         
+        print(f'html page {i} created')
+        
         # Delay execution for 1 second
-        sleep(1)
+        sleep(0.5)

@@ -13,15 +13,30 @@ while True:
     option = input('>')
     if option == '1':
         print('Text file Generator')
-        file_count = int(input('Enter no of files: '))
-        file_gen.create_text_file(file_count)
+        try:
+            file_count = int(input('Enter no of files: '))
+            
+            if file_count in range(1, 21, 1):
+                file_gen.create_text_file(file_count)
+            else:
+                print("You can only create from 1 up to 20 files, otherwise the computer would be full :)")
+        except:
+            print('Integers only!')
+            sleep(1)
     elif option == '2':
         print('HTML file generator')
-        file_count = int(input('Enter no of files: '))
-        file_gen.create_html_file(file_count)
+        try:
+            file_count = int(input('Enter no of files: '))
+            if file_count in range(1, 21, 1):
+                file_gen.create_html_file(file_count)
+            else:
+                print("You can only create from 1 up to 20 files, otherwise the computer would be full :)")
+        except:
+            print("Integers only!")
     elif option == '3':
         print('Exiting')
-        sleep(2)
+        sleep(1)
         break
     else:
         print('Please select a valid option')
+        sleep(1)
